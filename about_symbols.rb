@@ -3,7 +3,11 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class AboutSymbols < Neo::Koan
   def test_symbols_are_symbols
     symbol = :ruby
+<<<<<<< HEAD
     assert_equal __, symbol.is_a?(Symbol)
+=======
+    assert_equal true, symbol.is_a?(Symbol)
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_symbols_can_be_compared
@@ -11,21 +15,35 @@ class AboutSymbols < Neo::Koan
     symbol2 = :a_symbol
     symbol3 = :something_else
 
+<<<<<<< HEAD
     assert_equal __, symbol1 == symbol2
     assert_equal __, symbol1 == symbol3
+=======
+    assert_equal true, symbol1 == symbol2
+    assert_equal false, symbol1 == symbol3
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_identical_symbols_are_a_single_internal_object
     symbol1 = :a_symbol
     symbol2 = :a_symbol
 
+<<<<<<< HEAD
     assert_equal __, symbol1           == symbol2
     assert_equal __, symbol1.object_id == symbol2.object_id
+=======
+    assert_equal true, symbol1           == symbol2
+    assert_equal true, symbol1.object_id == symbol2.object_id
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_method_names_become_symbols
     symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
+<<<<<<< HEAD
     assert_equal __, symbols_as_strings.include?("test_method_names_become_symbols")
+=======
+    assert_equal true, symbols_as_strings.include?("test_method_names_become_symbols")
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   # THINK ABOUT IT:
@@ -38,45 +56,75 @@ class AboutSymbols < Neo::Koan
     def test_constants_become_symbols
       all_symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
 
+<<<<<<< HEAD
       assert_equal __, all_symbols_as_strings.include?(__)
+=======
+      assert_equal false, all_symbols_as_strings.include?(__)
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
     end
   end
 
   def test_symbols_can_be_made_from_strings
     string = "catsAndDogs"
+<<<<<<< HEAD
     assert_equal __, string.to_sym
+=======
+    assert_equal :catsAndDogs, string.to_sym
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_symbols_with_spaces_can_be_built
     symbol = :"cats and dogs"
 
+<<<<<<< HEAD
     assert_equal __.to_sym, symbol
+=======
+    assert_equal "cats and dogs".to_sym, symbol
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_symbols_with_interpolation_can_be_built
     value = "and"
     symbol = :"cats #{value} dogs"
 
+<<<<<<< HEAD
     assert_equal __.to_sym, symbol
+=======
+    assert_equal "cats and dogs".to_sym, symbol
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_to_s_is_called_on_interpolated_symbols
     symbol = :cats
     string = "It is raining #{symbol} and dogs."
 
+<<<<<<< HEAD
     assert_equal __, string
+=======
+    assert_equal "It is raining cats and dogs.", string
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_symbols_are_not_strings
     symbol = :ruby
+<<<<<<< HEAD
     assert_equal __, symbol.is_a?(String)
     assert_equal __, symbol.eql?("ruby")
+=======
+    assert_equal false, symbol.is_a?(String)
+    assert_equal false, symbol.eql?("ruby")
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   def test_symbols_do_not_have_string_methods
     symbol = :not_a_string
+<<<<<<< HEAD
     assert_equal __, symbol.respond_to?(:each_char)
     assert_equal __, symbol.respond_to?(:reverse)
+=======
+    assert_equal false, symbol.respond_to?(:each_char)
+    assert_equal false, symbol.respond_to?(:reverse)
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   # It's important to realize that symbols are not "immutable
@@ -85,13 +133,21 @@ class AboutSymbols < Neo::Koan
 
   def test_symbols_cannot_be_concatenated
     # Exceptions will be pondered further down the path
+<<<<<<< HEAD
     assert_raise(___) do
+=======
+    assert_raise(NameError) do
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
       :cats + :dogs
     end
   end
 
   def test_symbols_can_be_dynamically_created
+<<<<<<< HEAD
     assert_equal __, ("cats" + "dogs").to_sym
+=======
+    assert_equal :catsdogs, ("cats" + "dogs").to_sym
+>>>>>>> 134c677df1e0c159beb94b599af03452d8cb6bf8
   end
 
   # THINK ABOUT IT:
