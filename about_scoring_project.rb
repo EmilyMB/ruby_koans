@@ -31,32 +31,36 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   @sum = 0
-  remaining = three_ones(dice)
+  remaining = three_of_a_kind(dice)
   @sum += 100 * remaining.count(1)
   @sum += 50 * remaining.count(5)
   @sum
 end
 
-def three_ones(dice)
-  counter = dice.count(1)
-  if (counter > 2)
-    @sum = 1000 + (counter - 3) * 100
-    return dice - [1]
-  else
-    three_of_a_kind(dice)
-  end
-end
+VALUE_OF_THREE = {
+  1 => 1000,
+  2 => 200,
+  3 => 300,
+  4 => 400,
+  5 => 500,
+  6 => 600
+}
+
+VALUE_OF_ONE = {
+  1 => 100,
+  2 => 0,
+  3 => 0,
+  4 => 0,
+  5 => 50,
+  6 => 0
+}
 
 def three_of_a_kind(dice)
-  2.upto(6) do |i|
+  1.upto(6) do |i|
     counter = dice.count(i)
     if (counter > 2)
-      if (i == 5)
-        @sum = 100 * i + 50 * (counter - 3)
-      else
-        @sum = 100 * i
-      end
-       dice = dice - [i]
+      @sum = VALUE_OF_THREE[i] + VALUE_OF_ONE[i] * (counter - 3)
+      dice = dice - [i]
     end
   end
   dice
